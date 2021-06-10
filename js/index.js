@@ -1,10 +1,4 @@
-$.ajaxSetup({
-    beforeSend: function (xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
-        }
-    }
-});//解决403没权限
+//存在403的错误
 
 let main = $('main'); main = main[0]
 let loading = $('.loading'); loading = loading[0]
