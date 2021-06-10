@@ -1,0 +1,119 @@
+html {
+    font-size: 13.33333vw;
+}
+
+body{
+    font-size: 16px;
+}
+
+nav {
+    display: flex;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+nav span{
+   width: calc(100% / 4);
+    height: .93rem;
+    line-height: .93rem;
+}
+
+nav span::after{
+    content: '';
+    display: block;
+    width: 0.2rem;
+    background-color: red;
+    border: 0.02rem solid red;
+    margin: -0.02rem auto 0;
+    display: none;
+}
+
+nav span.active::after {
+    display: block;
+}
+
+.list {
+    background-color: #f8f8f8;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list li,.list  li a {
+    width: calc(100% / 5);
+    height: .7rem;
+    line-height: .7rem;
+    text-align: center;
+}
+
+.list li a {
+    width: 100%;
+    display: inline-block;
+    color: #333;
+}
+
+.list li a.a-hide {
+    color: red;
+    font-weight: 800;
+}
+/*新闻列表**/
+.item {
+    display: flex;
+    box-sizing: border-box;
+    padding: 15px;
+    border-bottom: 0.01rem solid red;
+    justify-content: space-around;
+}
+
+.item h1 {
+    padding-right: .2rem;
+    font-size: .30rem;
+    max-height: .9rem;
+    color: #333333;
+    font-weight: 400;
+    overflow: hidden;
+    margin-bottom: .25rem;
+}
+.item .message {
+    color: #b4b4b4;
+    font-weight: 500;
+    font-size: .15rem;
+}
+
+.item .message span {
+    padding-left: .4rem;
+}
+
+.item img {
+    width: 2rem;
+    height: 1.5rem;
+    object-fit: cover;
+}
+
+/**loading*/
+.loading {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
+.loading > i {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translateX(-50%) translateX(-50%);
+   animation: move 2s linear infinite;
+}
+
+@keyframes move {
+    to{
+        transform: translateX(-50%) translateX(-50%) rotate(360deg) ;
+    }
+}
+.loading.active{
+    display: block;
+}
+
+
