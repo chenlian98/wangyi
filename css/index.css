@@ -6,37 +6,39 @@ body{
     font-size: 16px;
 }
 
-nav {
-    display: flex;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-    background: #fff;
-}
+/*nav {*/
+/*    display: flex;*/
+/*    text-align: center;*/
+/*    border-bottom: 1px solid #eee;*/
+/*    background: #fff;*/
+/*}*/
 
-nav span{
-   width: calc(100% / 4);
-    height: .93rem;
-    line-height: .93rem;
-}
+/*nav span{*/
+/*   width: calc(100% / 4);*/
+/*    height: .93rem;*/
+/*    line-height: .93rem;*/
+/*}*/
 
-nav span::after{
-    content: '';
-    display: block;
-    width: 0.2rem;
-    background-color: red;
-    border: 0.02rem solid red;
-    margin: -0.02rem auto 0;
-    display: none;
-}
+/*nav span::after{*/
+/*    content: '';*/
+/*    display: block;*/
+/*    width: 0.2rem;*/
+/*    background-color: red;*/
+/*    border: 0.02rem solid red;*/
+/*    margin: -0.02rem auto 0;*/
+/*    display: none;*/
+/*}*/
 
-nav span.active::after {
-    display: block;
-}
+/*nav span.active::after {*/
+/*    display: block;*/
+/*}*/
 
 .list {
     background-color: #f8f8f8;
     display: flex;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
 }
 
 .list li,.list  li a {

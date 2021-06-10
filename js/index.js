@@ -19,7 +19,8 @@ function renderNews(id='BA10TA81wangning',star= 0,end = '-'+10) {
             loading.className = 'loading'
             $.each(res[type],function (index,item){
                 let a = document.createElement('a');
-                a.href = 'javascript:void(0)';
+                // console.log(item)
+                a.href = item.url
                 a.className = 'item';
                 a.insertAdjacentHTML('beforeend',`
                 <div class="text">
@@ -60,30 +61,52 @@ for (let i = 0; i < as.length; i++) {
     }
 }
 
+//判断页面滚动到底部 分页
 let isFlag = false
-//分页
-let winH = $(window).height(); //页面可视区域高
-    $(window).scroll(function() {
-        let pageH = $(document.body).height() //整个网站页面总高度
-        let scrollH = $(window).scrollTop(); //滚动条高度
-        let differ = (pageH - winH - scrollH) //差值;
-        console.log((differ).toFixed(2) < 0.08)
-        if ( (differ).toFixed(2) < 0.08 ) {//代表滚到条已经到底
-            if(!isFlag) {
-                isFlag = true
-                loading.className = 'loading active'
-                countPage += 1
-                let start = (countPage - 1) * pageSize
-                let end = '-' + pageSize
-                renderNews(type,start,end)
-            }
-
+$(window).scroll(function() {
+    let self = $(this);
+    let scrollTop = self.scrollTop();
+    let scrollHeight = $(document).height();
+    let windowHeight = self.height();
+    let sum = (scrollTop + windowHeight).toFixed(0)
+  /*  console.log(scrollHeight  + 'scrollHeight')
+    console.log(sum  + 'sum')
+    console.log(sum >= scrollHeight)*/
+    if (sum >= scrollHeight) {
+        //滚动到底部触发点击事件
+        if (!isFlag) {
+            isFlag = true
+            loading.className = 'loading active'
+            countPage += 1
+            let start = (countPage - 1) * pageSize
+            let end = '-' + pageSize
+            renderNews(type, start, end)
         }
-    })
+    }
+})
 
 
 
-
+// let isFlag = false
+// let winH = $(window).height(); //页面可视区域高
+// $(window).scroll(function() {
+//     let pageH = $(document.body).height() //整个网站页面总高度
+//     let scrollH = $(window).scrollTop(); //滚动条高度
+//     let differ = (pageH - winH - scrollH) //差值;
+//     console.log((differ).toFixed(2) < 0.08)
+//     console.log((differ).toFixed(3))
+//     if ( (differ).toFixed(2) < 0.08 ) {//代表滚到条已经到底
+//         if(!isFlag) {
+//             isFlag = true
+//             loading.className = 'loading active'
+//             countPage += 1
+//             let start = (countPage - 1) * pageSize
+//             let end = '-' + pageSize
+//             renderNews(type,start,end)
+//         }
+//
+//     }
+// })
 
 /***
  *
